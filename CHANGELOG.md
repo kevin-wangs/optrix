@@ -1,30 +1,42 @@
 # Changelog
 
+## [0.2.0] - 2025-11-15
+
+### Added
+- ones(), full(), zeros_like() buffer allocators
+- DeviceBuffer.fill() and .copy() methods
+- CLI with info/bench/kernels commands
+- Monte Carlo Pi estimation example
+- ML inference pipeline example
+- Benchmark example with timing
+- Comprehensive API reference docs
+- Performance optimization guide
+- ROCm integration guide
+- Security policy
+- Code of conduct
+- GitHub Actions CI (multi-Python matrix)
+- Issue and PR templates
+
+### Fixed
+- Shape parsing for integer inputs
+- Kernel argument validation
+- Memory allocation edge cases
+
+### Changed
+- Version bump to 0.2.0
+- Ruff formatting applied
+
 ## [0.1.0] - 2025-11-01
 
 ### Added
+- Initial release
 - Core device detection with HIP/CPU fallback
 - DeviceBuffer with RAII memory management
 - Kernel dispatch engine with registry
-- Built-in kernels: vec_add, matmul, relu, softmax, reductions
-- Memory pool with buddy-allocator
-- Stream and StreamPool management
-- Execution context (thread-local)
-- Profiler with context manager support
-- Linear algebra module (matmul, dot, norm, solve, svd)
-- Architecture detection (RDNA/CDNA)
-- Wavefront-aware grid optimization
-- L2 cache tiling optimizer
-- ROCm utilities
-- Data loader and serializer
-- Quantization utilities (fp32→fp16, fp32→int8)
-- Metrics collector
-- CLI framework
-- Comprehensive test suite
-- CI/CD pipeline
-
-### Changed
-- N/A (initial release)
-
-### Fixed
-- N/A (initial release)
+- Built-in kernels
+- Memory pool
+- Stream management
+- Profiler
+- Linear algebra module
+- Architecture detection
+- Test suite
