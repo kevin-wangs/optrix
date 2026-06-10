@@ -6,7 +6,7 @@ setup(
     description="High-performance parallel compute primitives for heterogeneous hardware",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    author="Kevin Wangs",
+    author="Kevin Wangs (Apex Ridge Technologies, Inc.)",
     url="https://github.com/kevin-wangs/optrix",
     project_urls={
         "Docs": "https://github.com/kevin-wangs/optrix/tree/main/docs",
