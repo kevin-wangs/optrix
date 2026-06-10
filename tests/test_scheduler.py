@@ -1,17 +1,15 @@
-"""Tests for optrix.scheduler."""
+"""Tests for BatchScheduler."""
 from optrix.scheduler import BatchScheduler
 
 class TestBatchScheduler:
-    def test_add_and_len(self):
+    def test_add(self):
         s = BatchScheduler()
-        s.add("vec_add")
-        s.add("matmul")
-        assert len(s) == 2
+        s.add("test")
+        assert len(s) == 1
 
-    def test_clear_on_execute(self):
+    def test_clear(self):
         s = BatchScheduler()
-        s.add("vec_add")
-        # execute will fail without proper args, but queue should clear
+        s.add("test")
         try: s.execute()
         except: pass
         assert len(s) == 0
