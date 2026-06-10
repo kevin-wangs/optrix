@@ -1,25 +1,16 @@
 # Troubleshooting
 
-## Common Issues
+## No module 'optrix._backend.hip'
+Expected without ROCm. Optrix falls back to CPU simulation.
 
-### ImportError: No module named 'optrix._backend.hip'
-This is expected when ROCm is not installed. Optrix falls back to
-CPU simulation automatically. Install ROCm for GPU acceleration.
+## Device X not found
+Run `optrix info` or `optrix.detect_devices()`.
 
-### RuntimeError: Device X not found
-Check available devices: `optrix.info` CLI command or `optrix.detect_devices()`.
-
-### MemoryError: Allocation failed
-- Reduce buffer size
+## Allocation failed
 - Use memory pool: `optrix.get_pool()`
 - Check VRAM: `rocm-smi --showmeminfo vram`
 
-### Slow performance
-- Ensure ROCm is installed and detected
+## Slow performance
+- Install ROCm for GPU acceleration
 - Use pinned memory for large transfers
 - Profile with `optrix.Profiler`
-- Check GPU utilization: `rocm-smi`
-
-## Getting Help
-- GitHub Issues: https://github.com/kevin-wangs/optrix/issues
-- Discussions: https://github.com/kevin-wangs/optrix/discussions
