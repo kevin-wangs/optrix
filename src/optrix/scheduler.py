@@ -1,8 +1,7 @@
 """Task scheduler for batch kernel dispatch."""
 from __future__ import annotations
 from dataclasses import dataclass, field
-from typing import List, Callable, Optional
-from concurrent.futures import ThreadPoolExecutor
+from typing import List, Optional, Callable
 import logging
 
 logger = logging.getLogger("optrix")
@@ -16,10 +15,8 @@ class ScheduledTask:
     callback: Optional[Callable] = None
 
 class BatchScheduler:
-    """Schedule and batch multiple kernel dispatches."""
-    def __init__(self, max_workers=4):
+    def __init__(self):
         self._queue: List[ScheduledTask] = []
-        self._executor = ThreadPoolExecutor(max_workers=max_workers)
 
     def add(self, kernel, *args, priority=0, **kwargs):
         self._queue.append(ScheduledTask(kernel, args, kwargs, priority))
@@ -31,8 +28,7 @@ class BatchScheduler:
         for task in self._queue:
             result = dispatch(task.kernel, *task.args, **task.kwargs)
             results.append(result)
-            if task.callback:
-                task.callback(result)
+            if task.callback: task.callback(result)
         self._queue.clear()
         return results
 
