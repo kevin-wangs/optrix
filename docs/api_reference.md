@@ -1,69 +1,23 @@
-# Optrix API Reference
+# API Reference
 
 ## Core
-
-### `detect_devices() -> List[DeviceInfo]`
-Detect all available ROCm/HIP compute devices.
-
-### `synchronize(device_id=0) -> None`
-Block until all pending work on device finishes.
-
-### `DeviceInfo`
-- `.device_id: int`
-- `.name: str`
-- `.total_memory: int` (bytes)
-- `.compute_units: int`
-- `.arch: str` (e.g., "gfx1100")
-- `.wavefront_size: int`
-- `.memory_gb: float`
+- `detect_devices() -> List[DeviceInfo]`
+- `synchronize(device_id=0)`
+- `DeviceInfo`: .name, .arch, .memory_gb, .compute_units
 
 ## Memory
-
-### `zeros(shape, dtype=float32, device_id=0) -> DeviceBuffer`
-Allocate zero-initialized device buffer.
-
-### `empty(shape, dtype=float32, device_id=0) -> DeviceBuffer`
-Allocate uninitialized device buffer.
-
-### `ones(shape, dtype=float32, device_id=0) -> DeviceBuffer`
-Allocate one-initialized device buffer.
-
-### `DeviceBuffer`
-- `.shape: Tuple[int, ...]`
-- `.dtype: Dtype`
-- `.nbytes: int`
-- `.to_host() -> np.ndarray`
-- `.to_device(array: np.ndarray) -> None`
-- `.fill(value) -> None`
-- `.copy() -> DeviceBuffer`
+- `zeros(shape, dtype, device_id)` / `empty()` / `ones()` / `full()`
+- `DeviceBuffer`: .to_host(), .to_device(), .fill(), .copy()
 
 ## Dispatch
-
-### `register_kernel(name, func=None) -> Callable`
-Register a compute kernel.
-
-### `dispatch(kernel_name, *args, output=None) -> DeviceBuffer`
-Execute a registered kernel.
-
-### `list_kernels() -> List[str]`
-List all registered kernel names.
-
-### `auto_grid(n_elements, block_size=256) -> Tuple`
-Compute optimal grid/block dimensions.
+- `register_kernel(name, func)` — register a compute kernel
+- `dispatch(kernel_name, *args, output=None)` — execute kernel
+- `list_kernels()` — list registered kernels
+- `auto_grid(n, block=256)` — compute grid/block dims
 
 ## Linear Algebra
+- `matmul(a, b)` / `dot(a, b)` / `norm(a)` / `solve(A, b)` / `svd(a)`
 
-### `matmul(a, b) -> DeviceBuffer`
-Matrix multiplication.
-
-### `dot(a, b) -> float`
-Dot product.
-
-### `norm(a, ord=2) -> float`
-Vector norm.
-
-### `solve(A, b) -> DeviceBuffer`
-Solve linear system Ax = b.
-
-### `svd(a) -> Tuple[DeviceBuffer, DeviceBuffer, DeviceBuffer]`
-Singular Value Decomposition.
+## Profiling
+- `Profiler` — context manager for timing
+- `profile(func)` — decorator for timing
