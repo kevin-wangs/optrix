@@ -1,30 +1,15 @@
 ---
 name: Bug Report
-about: Report a bug in Optrix
-title: '[BUG] '
+about: Report a bug
 labels: bug
 ---
-
-## Description
-A clear description of the bug.
-
 ## Environment
-- Optrix version:
-- Python version:
-- OS:
-- GPU:
-- ROCm version:
+- Optrix: 
+- Python: 
+- OS: 
+- GPU: 
+- ROCm: 
 
 ## Steps to Reproduce
-1.
-2.
-3.
 
-## Expected Behavior
-
-## Actual Behavior
-
-## Logs
-```
-(paste logs here)
-```
+## Expected vs Actual

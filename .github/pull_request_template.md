@@ -1,13 +1,11 @@
 ## Description
 
 ## Changes
--
 
 ## Testing
-- [ ] All existing tests pass
-- [ ] New tests added for new functionality
+- [ ] Tests pass
+- [ ] New tests added
 
 ## Checklist
-- [ ] Code follows project style
-- [ ] Documentation updated
+- [ ] Docs updated
 - [ ] CHANGELOG updated
