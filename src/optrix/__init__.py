@@ -1,5 +1,5 @@
 """Optrix - High-performance parallel compute primitives."""
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 __author__ = "Kevin Wangs"
 
 from optrix.core import detect_devices, synchronize
@@ -12,6 +12,7 @@ from optrix.context import device_context, stream_context, current_context
 from optrix.pool import MemoryPool, get_pool
 from optrix.profiler import Profiler, profile
 from optrix.linalg import matmul, dot, norm, solve, svd
+from optrix.loader import from_numpy, from_file, to_numpy, to_file
 from optrix.config import get_config
 
 __version_info__ = tuple(int(x) for x in __version__.split("."))
@@ -25,5 +26,6 @@ __all__ = [
     "device_context", "stream_context", "current_context",
     "MemoryPool", "get_pool", "Profiler", "profile",
     "matmul", "dot", "norm", "solve", "svd",
+    "from_numpy", "from_file", "to_numpy", "to_file",
     "get_config",
 ]
