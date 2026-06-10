@@ -22,5 +22,6 @@ We are committed to open-source development. All our core libraries are released
 
 ## Contact
 
-For business inquiries: info@apexridgetech.com
-For technical support: support@apexridgetech.com
+- Business inquiries: info@apexridgetech.com
+- Technical support: support@apexridgetech.com
+- Careers: careers@apexridgetech.com
